@@ -90,6 +90,7 @@ test-suite deepseq-generics-tests
     build-depends:
         array,
         base,
+        ghc-prim,
         -- end of packages with inherited version constraints
         test-framework == 0.8.*,
         test-framework-hunit == 0.3.*,
