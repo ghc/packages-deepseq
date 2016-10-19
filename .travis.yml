@@ -85,7 +85,7 @@ install:
    fi
  - travis_retry cabal update -v
  - sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
-   # can't use "cabal install --only-dependencies --enable-tests" due to dep-cycle
+# can't use "cabal install --only-dependencies --enable-tests" due to dep-cycle
  - cabal install 'test-framework == 0.8.*' 'test-framework-hunit == 0.3.*' 'HUnit >= 1.2 && < 1.6' --dry -v > installplan.txt
  - sed -i -e '1,/^Resolving /d' installplan.txt; cat installplan.txt
 
@@ -100,7 +100,6 @@ install:
      echo "cabal build-cache MISS";
      rm -rf $HOME/.cabsnap;
      mkdir -p $HOME/.ghc $HOME/.cabal/lib $HOME/.cabal/share $HOME/.cabal/bin;
-     # can't use "cabal install --only-dependencies --enable-tests" due to dep-cycle
      cabal install 'test-framework == 0.8.*' 'test-framework-hunit == 0.3.*' 'HUnit >= 1.2 && < 1.6';
    fi
 
